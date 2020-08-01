@@ -1,0 +1,337 @@
+[
+	{
+		"testName": "정상케이스_테스트",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "trim_test_stx",
+		"testData": [
+			{
+				"stx": "TG5@ ",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "trim_test_func",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification ",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "trim_test_code",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2 ",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "trim_test_etx",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT "
+			}
+		]
+	},
+	{
+		"testName": "비정상 길이 data",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "정의되지 않은 값_stx",
+		"testData": [
+			{
+				"stx": "TG4@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "정의되지 않은 값_etx",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#4GT"
+			}
+		]
+	},
+	{
+		"testName": "정의되지 않은 값_func",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notificatio",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "정의되지 않은 값_code",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "5",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "req패킷 묶음전송",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "stx_null",
+		"testData": [
+			{
+				"stx": null,
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	},
+	{
+		"testName": "etx_null",
+		"testData": [
+			{
+				"stx": null,
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	}
+]

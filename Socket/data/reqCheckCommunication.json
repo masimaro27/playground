@@ -1,0 +1,127 @@
+[
+	{
+		"testName": "정상데이터_테스트",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "heartBeat",
+				"code": "0",
+				"data": [
+					{
+						"CRID": "01",
+						"STATE": "0"
+					},
+					{
+						"CRID": "02",
+						"STATE": "0"
+					},
+					{
+						"CRID": "03",
+						"STATE": "0"
+					},
+					{
+						"CRID": "04",
+						"STATE": "0"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "heartBeat",
+				"code": "1",
+				"data": [
+					{
+						"CRID": "01",
+						"STATE": "0"
+					},
+					{
+						"CRID": "02",
+						"STATE": "0"
+					},
+					{
+						"CRID": "03",
+						"STATE": "0"
+					},
+					{
+						"CRID": "04",
+						"STATE": "0"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "heartBeat",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"STATE": "0"
+					},
+					{
+						"CRID": "02",
+						"STATE": "0"
+					},
+					{
+						"CRID": "03",
+						"STATE": "0"
+					},
+					{
+						"CRID": "04",
+						"STATE": "0"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "heartBeat",
+				"code": "3",
+				"data": [
+					{
+						"CRID": "01",
+						"STATE": "0"
+					},
+					{
+						"CRID": "02",
+						"STATE": "0"
+					},
+					{
+						"CRID": "03",
+						"STATE": "0"
+					},
+					{
+						"CRID": "04",
+						"STATE": "0"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "heartBeat",
+				"code": "4",
+				"data": [
+					{
+						"CRID": "01",
+						"STATE": "0"
+					},
+					{
+						"CRID": "02",
+						"STATE": "0"
+					},
+					{
+						"CRID": "03",
+						"STATE": "0"
+					},
+					{
+						"CRID": "04",
+						"STATE": "0"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	}
+]

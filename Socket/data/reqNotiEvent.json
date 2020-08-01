@@ -1,0 +1,76 @@
+[
+	{
+		"testName": "정상케이스_테스트",
+		"testData": [
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "2",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "3",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151011"
+					},
+					{
+						"CRID": "03",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151011"
+					}
+				],
+				"etx": "#5GT"
+			},
+			{
+				"stx": "TG5@",
+				"function": "notification",
+				"code": "4",
+				"data": [
+					{
+						"CRID": "01",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CDate": "20200101151010"
+					},
+					{
+						"CRID": "02",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					},
+					{
+						"CRID": "03",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					},
+					{
+						"CRID": "04",
+						"CD": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+						"CTIME": "20200101151010"
+					}
+				],
+				"etx": "#5GT"
+			}
+		]
+	}
+]

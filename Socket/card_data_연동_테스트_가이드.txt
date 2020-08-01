@@ -1,0 +1,10 @@
+
+jar location : /home/app
+test data location :  /home/app/test_data
+
+test method :
+	1. java -jar socketClient.jar
+	2. [input command]
+	[ 1 ] :  2.1 login request 
+	[ 2 ] :  2.2 event notification
+	[ 3 ] :  2.3 heartBeat
