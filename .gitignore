@@ -1,3 +1,5 @@
 /Algorithm/bin/**
+/Algorithm/.idea/**
+/Algorithm/Algorithm.iml
 .metadata/**
 .recommenders/**

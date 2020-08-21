@@ -8,44 +8,44 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class °¡»ç°Ë»ö {
+public class ê°€ì‚¬ê²€ìƒ‰ {
 	public static void main(String[] args) {
 		String[] words = {"frodo", "front", "frost", "frost", "frozen", "frame", "kakao"};
 		String[] queries = {"fro??", "????o", "fr???", "fro???", "pro?", "????o"};
-		
+
 		int[] answer = new int[queries.length];
 		long start = 0L;
 		long end = 0L;
-		
+
 		/**
-		 * ¹®ÀÚ¿­ ±æÀÌ Á¤·Ä
+		 * ë¬¸ìì—´ ê¸¸ì´ ì •ë ¬
 		 */
 		Arrays.sort(words, (o1, o2) -> Integer.compare(o1.length(), o2.length()));
-		
+
 		/**
-		 * ±æÀÌº° grouping
+		 * ê¸¸ì´ë³„ grouping
 		 */
 		start = System.currentTimeMillis();
 		Map<Integer, List<String>> grouping = groupingByLength_2(words);
 		end = System.currentTimeMillis();
 		executeTime("length sort", start, end);
-		
+
 		start = System.currentTimeMillis();
 		Iterator<Integer> iter = grouping.keySet().iterator();
 		while (iter.hasNext()) {
 			int key = iter.next();
 			/**
-			 * ¾ËÆÄºª Á¤·Ä
+			 * ì•ŒíŒŒë²³ ì •ë ¬
 			 */
 			grouping.put(key, grouping.get(key).stream().sorted().collect(Collectors.toList()));
 		}
 		end = System.currentTimeMillis();
 		executeTime("word sort", start, end);
-		
+
 		/**
-		 * ¹®ÀÚ¿­ °Ë»ö
+		 * ë¬¸ìì—´ ê²€ìƒ‰
 		 */
-		
+
 		for(int i = 0 ; i < queries.length; i++) {
 			start = System.currentTimeMillis();
 			Integer queryLen = queries[i].length();
@@ -62,14 +62,14 @@ public class °¡»ç°Ë»ö {
 				answer[i] = 0;
 				continue;
 			}
-			
+
 			String searchChar = queries[i].replaceAll("\\?", "").trim();
 			int wildcardCount;
 			int wordCount;
-			
-			
+
+
 			/**
-			 * ¿ŞÂÊ
+			 * ì™¼ìª½
 			 */
 			if (queries[i].indexOf("?") == 0) {
 				wordCount = queries[i].length() - (queries[i].lastIndexOf("?") + 1);
@@ -77,12 +77,12 @@ public class °¡»ç°Ë»ö {
 				answer[i] = count;
 			}
 			/**
-			 * ¿À¸¥ÂÊ
+			 * ì˜¤ë¥¸ìª½
 			 */
 			else {
 				wildcardCount = queryLen - (queries[i].indexOf("?"));
 				wordCount = queryLen - wildcardCount;
-				
+
 				int count = (int) grouping.get(key).stream().filter(word -> word.indexOf(searchChar) == 0).count();
 				answer[i] = count;
 			}
@@ -90,63 +90,63 @@ public class °¡»ç°Ë»ö {
 			executeTime("search", start, end);
 		}
 
-		
+
 		Arrays.stream(answer).forEach(System.out::println);
-		
+
 //		Arrays.stream(data).forEach(d -> System.out.println(d));
 	}
-	
+
 	private static Map<Integer, List<String>> groupingByLength(String[] words) {
-		 return Arrays.stream(words).collect(Collectors.groupingBy(String::length));
+		return Arrays.stream(words).collect(Collectors.groupingBy(String::length));
 	}
-	
+
 	private static Map<Integer, List<String>> groupingByLength_2(String[] words) {
-		  Map<Integer, List<String>> groupingData = new HashMap<Integer, List<String>>();
-		  int wordLength = 0;
-		  List<String> groupingWords = new ArrayList<String>();
-		  
-		  for (int i = 0 ; i < words.length ; i++) {
-			  if (i == 0 ) {
-				  wordLength = words[i].length();
-				  groupingWords.add(words[i]);
-				  continue;
-			  }
-			  
-			  if (wordLength != words[i].length()) {
-				  groupingData.put(wordLength, groupingWords);
-				  groupingWords = new ArrayList<String>();
-				  wordLength = words[i].length();
-				  groupingWords.add(words[i]);
-			  } else {
-				  groupingWords.add(words[i]);
-			  }
-		  }
-		  
-		  groupingData.put(wordLength, groupingWords);
-		  
-		  return groupingData;
-		  
+		Map<Integer, List<String>> groupingData = new HashMap<Integer, List<String>>();
+		int wordLength = 0;
+		List<String> groupingWords = new ArrayList<String>();
+
+		for (int i = 0 ; i < words.length ; i++) {
+			if (i == 0 ) {
+				wordLength = words[i].length();
+				groupingWords.add(words[i]);
+				continue;
+			}
+
+			if (wordLength != words[i].length()) {
+				groupingData.put(wordLength, groupingWords);
+				groupingWords = new ArrayList<String>();
+				wordLength = words[i].length();
+				groupingWords.add(words[i]);
+			} else {
+				groupingWords.add(words[i]);
+			}
+		}
+
+		groupingData.put(wordLength, groupingWords);
+
+		return groupingData;
+
 	}
-	
+
 	private static int findKey(Map<Integer, List<String>> groupingWords, int tWordLength ) {
-	       int left = 0, right = groupingWords.size() - 1;
-	       Integer[] keys = (Integer[]) groupingWords.keySet().toArray(new Integer[0]);
-	       while(left <= right) {
-	    	   int mid = (left + right) / 2;
-	    	   int midWordLength = keys[mid];
-	    	   if (tWordLength == midWordLength) {
-	    		   return midWordLength;
-	    	   } else if (tWordLength < midWordLength) {
-	    		   right = mid - 1;
-	    	   } else {
-	    		   left = mid + 1;
-	    	   }
-	    	   
-	       }
-	       return -1;
-	       
-	  }
-	
+		int left = 0, right = groupingWords.size() - 1;
+		Integer[] keys = (Integer[]) groupingWords.keySet().toArray(new Integer[0]);
+		while(left <= right) {
+			int mid = (left + right) / 2;
+			int midWordLength = keys[mid];
+			if (tWordLength == midWordLength) {
+				return midWordLength;
+			} else if (tWordLength < midWordLength) {
+				right = mid - 1;
+			} else {
+				left = mid + 1;
+			}
+
+		}
+		return -1;
+
+	}
+
 	private static void executeTime(String type, long start, long end) {
 		long spendTime = (end - start);
 		System.out.println("["+ type +"] executeTime : " + spendTime);
