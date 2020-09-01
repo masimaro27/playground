@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.IntStream;
 
-public class ±‚ªÁ∞Àªˆ_tree_2 {
+public class Í∏∞ÏÇ¨Í≤ÄÏÉâ_tree_2 {
 	public static void main(String[] args) {
 		Solution s = new Solution();
 		int[] answer = s.solution();
@@ -29,15 +29,15 @@ class Node {
 class Tree {
 	Node head;
 	int totalCount;
-	
+
 	public Tree() {
 		head = new Node(null);
 		totalCount = 0;
 	}
-	
+
 	public void insert(String word) {
 		Node currentNode = head;
-		
+
 		char[] chars = word.toCharArray();
 		for(Character c: chars) {
 			if (!currentNode.children.keySet().contains(c)) {
@@ -66,34 +66,34 @@ class Tree {
 }
 
 class Solution {
-	 public int[] solution() {
+	public int[] solution() {
 		String[] words = {"frodo", "front", "frost", "frost", "frozen", "frame", "kakao"};
 		String[] queries = {"fro??", "????o", "fr???", "fro???", "pro?", "k?", "k??", "k???", "k????", "k?????", "?", };
 		int[] answer = new int[queries.length];
 		/**
-		 * ±Ê¿Ã∫∞ tree ª˝º∫
+		 * Í∏∏Ïù¥Î≥Ñ tree ÏÉùÏÑ±
 		 */
 		Set<Integer> wordLen = new HashSet<>();
 		Map<Integer, Tree> nTree = new HashMap<>();
 		Map<Integer, Tree> rTree = new HashMap<>();
 		StringBuilder builder = new StringBuilder();
-		
+
 		for (String word: words) {
 			wordLen.add(word.length());
 		}
-		
+
 		for (int len: wordLen) {
 			nTree.put(len, new Tree());
 			rTree.put(len, new Tree());
 		}
-		
-		
+
+
 		for (String word: words) {
 			nTree.get(word.length()).insert(word);
 			rTree.get(word.length()).insert(builder.append(word).reverse().toString());
-			builder.setLength(0); // Stringbuilder √ ±‚»≠
+			builder.setLength(0); // Stringbuilder Ï¥àÍ∏∞Ìôî
 		}
-		
+
 		/**
 		 * find answer
 		 */
@@ -103,14 +103,14 @@ class Solution {
 				if (queries[i].matches("\\?+")) {
 					count = nTree.get(queries[i].length()).totalCount;
 				} else if (queries[i].charAt(0) == '?') {
-					builder.setLength(0); // Stringbuilder √ ±‚»≠
+					builder.setLength(0); // Stringbuilder Ï¥àÍ∏∞Ìôî
 					count = rTree.get(queries[i].length()).startWith(builder.append(queries[i]).reverse().toString());
 				} else {
 					count = nTree.get(queries[i].length()).startWith(queries[i]);
 				}
-			} 
+			}
 			answer[i] = count;
 		}
 		return answer;
-	 }
+	}
 }

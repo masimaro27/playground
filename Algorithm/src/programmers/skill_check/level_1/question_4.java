@@ -3,25 +3,25 @@ package programmers.skill_check.level_1;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 /**
- * ¹è¿­ arrayÀÇ i¹øÂ° ¼ıÀÚºÎÅÍ j¹øÂ° ¼ıÀÚ±îÁö ÀÚ¸£°í Á¤·ÄÇßÀ» ¶§, k¹øÂ°¿¡ ÀÖ´Â ¼ö¸¦ ±¸ÇÏ·Á ÇÕ´Ï´Ù.
+ * ë°°ì—´ arrayì˜ ië²ˆì§¸ ìˆ«ìë¶€í„° jë²ˆì§¸ ìˆ«ìê¹Œì§€ ìë¥´ê³  ì •ë ¬í–ˆì„ ë•Œ, kë²ˆì§¸ì— ìˆëŠ” ìˆ˜ë¥¼ êµ¬í•˜ë ¤ í•©ë‹ˆë‹¤.
 
-¿¹¸¦ µé¾î array°¡ [1, 5, 2, 6, 3, 7, 4], i = 2, j = 5, k = 3ÀÌ¶ó¸é
+ ì˜ˆë¥¼ ë“¤ì–´ arrayê°€ [1, 5, 2, 6, 3, 7, 4], i = 2, j = 5, k = 3ì´ë¼ë©´
 
-arrayÀÇ 2¹øÂ°ºÎÅÍ 5¹øÂ°±îÁö ÀÚ¸£¸é [5, 2, 6, 3]ÀÔ´Ï´Ù.
-1¿¡¼­ ³ª¿Â ¹è¿­À» Á¤·ÄÇÏ¸é [2, 3, 5, 6]ÀÔ´Ï´Ù.
-2¿¡¼­ ³ª¿Â ¹è¿­ÀÇ 3¹øÂ° ¼ıÀÚ´Â 5ÀÔ´Ï´Ù.
-¹è¿­ array, [i, j, k]¸¦ ¿ø¼Ò·Î °¡Áø 2Â÷¿ø ¹è¿­ commands°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, commandsÀÇ ¸ğµç ¿ø¼Ò¿¡ ´ëÇØ ¾Õ¼­ ¼³¸íÇÑ ¿¬»êÀ» Àû¿ëÇßÀ» ¶§ ³ª¿Â °á°ú¸¦ ¹è¿­¿¡ ´ã¾Æ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+ arrayì˜ 2ë²ˆì§¸ë¶€í„° 5ë²ˆì§¸ê¹Œì§€ ìë¥´ë©´ [5, 2, 6, 3]ì…ë‹ˆë‹¤.
+ 1ì—ì„œ ë‚˜ì˜¨ ë°°ì—´ì„ ì •ë ¬í•˜ë©´ [2, 3, 5, 6]ì…ë‹ˆë‹¤.
+ 2ì—ì„œ ë‚˜ì˜¨ ë°°ì—´ì˜ 3ë²ˆì§¸ ìˆ«ìëŠ” 5ì…ë‹ˆë‹¤.
+ ë°°ì—´ array, [i, j, k]ë¥¼ ì›ì†Œë¡œ ê°€ì§„ 2ì°¨ì› ë°°ì—´ commandsê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, commandsì˜ ëª¨ë“  ì›ì†Œì— ëŒ€í•´ ì•ì„œ ì„¤ëª…í•œ ì—°ì‚°ì„ ì ìš©í–ˆì„ ë•Œ ë‚˜ì˜¨ ê²°ê³¼ë¥¼ ë°°ì—´ì— ë‹´ì•„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì‘ì„±í•´ì£¼ì„¸ìš”.
 
-Á¦ÇÑ»çÇ×
-arrayÀÇ ±æÀÌ´Â 1 ÀÌ»ó 100 ÀÌÇÏÀÔ´Ï´Ù.
-arrayÀÇ °¢ ¿ø¼Ò´Â 1 ÀÌ»ó 100 ÀÌÇÏÀÔ´Ï´Ù.
-commandsÀÇ ±æÀÌ´Â 1 ÀÌ»ó 50 ÀÌÇÏÀÔ´Ï´Ù.
-commandsÀÇ °¢ ¿ø¼Ò´Â ±æÀÌ°¡ 3ÀÔ´Ï´Ù.
+ ì œí•œì‚¬í•­
+ arrayì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 100 ì´í•˜ì…ë‹ˆë‹¤.
+ arrayì˜ ê° ì›ì†ŒëŠ” 1 ì´ìƒ 100 ì´í•˜ì…ë‹ˆë‹¤.
+ commandsì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 50 ì´í•˜ì…ë‹ˆë‹¤.
+ commandsì˜ ê° ì›ì†ŒëŠ” ê¸¸ì´ê°€ 3ì…ë‹ˆë‹¤.
  */
 public class question_4 {
 
 	public static void main(String[] args) {
-		
+
 		question_4 q1 = new question_4();
 		int[] array = {1, 5, 2, 6, 3, 7, 4};
 		int[][] commands = {
@@ -30,23 +30,23 @@ public class question_4 {
 				{1, 7, 3}
 		};
 		System.out.println(Arrays.toString(q1.solution(array, commands)));
-		
+
 	}
-	
+
 	public int[] solution(int[] array, int[][] commands) {
-        int[] answer = new int[commands.length];
-        
-        for (int i = 0 ; i < commands.length; i++) {
-        		int startPos = commands[i][0];
-        		int endPos = commands[i][1];
-        		int findPos = commands[i][2];
-        		
-        		int[] slice = Arrays.copyOfRange(array, startPos - 1, endPos);
-        		int[] sortedSlice = IntStream.of(slice).sorted().toArray();
-        		answer[i] = sortedSlice[findPos - 1];
-        }
-        
-        return answer;
-    }
+		int[] answer = new int[commands.length];
+
+		for (int i = 0 ; i < commands.length; i++) {
+			int startPos = commands[i][0];
+			int endPos = commands[i][1];
+			int findPos = commands[i][2];
+
+			int[] slice = Arrays.copyOfRange(array, startPos - 1, endPos);
+			int[] sortedSlice = IntStream.of(slice).sorted().toArray();
+			answer[i] = sortedSlice[findPos - 1];
+		}
+
+		return answer;
+	}
 }
 

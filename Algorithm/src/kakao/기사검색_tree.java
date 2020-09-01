@@ -1,12 +1,12 @@
 package kakao;
 import java.util.*;
-public class ±â»ç°Ë»ö_tree {
-	public static void main(String[] args) {
-		Solution_x s = new Solution_x();
-		String[] words = {"fdo", "ab", "f", "frodo", "front", "frost", "frozen", "frame", "kakao"};
-		String[] queries = {"fro??", "????o", "fr???", "fro???", "pro?", "?????"};
-		s.solution(words, queries);
-	}
+public class ê¸°ì‚¬ê²€ìƒ‰_tree {
+    public static void main(String[] args) {
+        Solution_x s = new Solution_x();
+        String[] words = {"fdo", "ab", "f", "frodo", "front", "frost", "frozen", "frame", "kakao"};
+        String[] queries = {"fro??", "????o", "fr???", "fro???", "pro?", "?????"};
+        s.solution(words, queries);
+    }
 }
 class Section {
     int left, right;
@@ -43,12 +43,12 @@ class Solution_x {
     }
 
     private void makeSection(String[] words) {
-    	// Á¤·Ä
-        Arrays.sort(words, comp);   
+        // ì •ë ¬
+        Arrays.sort(words, comp);
         int len = -1;
         int start = 0;
         int i;
-        
+
         for(i = 0; i < words.length; i++) {
             if(i == 0) {
                 len = words[i].length();
@@ -60,7 +60,7 @@ class Solution_x {
                 start = i;
             }
         }
-        sections.add(new Section(start, i-1, len)); 
+        sections.add(new Section(start, i-1, len));
     }
 
     private void count(String[] words, String[] queries, int[] answer) {
@@ -90,13 +90,13 @@ class Solution_x {
                 answer[i] = cnt;
             else {
                 Section section = sections.get(idx);
-                if(flag == 0) { //Äõ¸®°¡ ?·Î ½ÃÀÛ
+                if(flag == 0) { //ì¿¼ë¦¬ê°€ ?ë¡œ ì‹œìž‘
                     for(int j = section.left; j <= section.right; j++) {
-                        if(words[j].endsWith(keyWord)) 
+                        if(words[j].endsWith(keyWord))
                             cnt++;
                     }
                 }
-                else { //Äõ¸®°¡ ¹®ÀÚ·Î ½ÃÀÛ
+                else { //ì¿¼ë¦¬ê°€ ë¬¸ìžë¡œ ì‹œìž‘
                     for(int j = section.left; j <= section.right; j++) {
                         if(words[j].startsWith(keyWord))
                             cnt++;

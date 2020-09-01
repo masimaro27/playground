@@ -2,27 +2,27 @@ package programmers.skill_check.level_1;
 
 import java.util.Arrays;
 /**
- * ¹®ÀÚ¿­ s¸¦ ¼ýÀÚ·Î º¯È¯ÇÑ °á°ú¸¦ ¹ÝÈ¯ÇÏ´Â ÇÔ¼ö, solutionÀ» ¿Ï¼ºÇÏ¼¼¿ä.
- * 
+ * ë¬¸ìžì—´ së¥¼ ìˆ«ìžë¡œ ë³€í™˜í•œ ê²°ê³¼ë¥¼ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜, solutionì„ ì™„ì„±í•˜ì„¸ìš”.
+ *
 
-Á¦ÇÑ Á¶°Ç
-sÀÇ ±æÀÌ´Â 1 ÀÌ»ó 5ÀÌÇÏÀÔ´Ï´Ù.
-sÀÇ ¸Ç¾Õ¿¡´Â ºÎÈ£(+, -)°¡ ¿Ã ¼ö ÀÖ½À´Ï´Ù.
-s´Â ºÎÈ£¿Í ¼ýÀÚ·Î¸¸ ÀÌ·ç¾îÁ®ÀÖ½À´Ï´Ù.
-s´Â 0À¸·Î ½ÃÀÛÇÏÁö ¾Ê½À´Ï´Ù.
-ÀÔÃâ·Â ¿¹
-¿¹¸¦µé¾î strÀÌ 1234ÀÌ¸é 1234¸¦ ¹ÝÈ¯ÇÏ°í, -1234ÀÌ¸é -1234¸¦ ¹ÝÈ¯ÇÏ¸é µË´Ï´Ù.
-strÀº ºÎÈ£(+,-)¿Í ¼ýÀÚ·Î¸¸ ±¸¼ºµÇ¾î ÀÖ°í, Àß¸øµÈ °ªÀÌ ÀÔ·ÂµÇ´Â °æ¿ì´Â ¾ø½À´Ï´Ù.
+ ì œí•œ ì¡°ê±´
+ sì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 5ì´í•˜ìž…ë‹ˆë‹¤.
+ sì˜ ë§¨ì•žì—ëŠ” ë¶€í˜¸(+, -)ê°€ ì˜¬ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+ sëŠ” ë¶€í˜¸ì™€ ìˆ«ìžë¡œë§Œ ì´ë£¨ì–´ì ¸ìžˆìŠµë‹ˆë‹¤.
+ sëŠ” 0ìœ¼ë¡œ ì‹œìž‘í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+ ìž…ì¶œë ¥ ì˜ˆ
+ ì˜ˆë¥¼ë“¤ì–´ strì´ 1234ì´ë©´ 1234ë¥¼ ë°˜í™˜í•˜ê³ , -1234ì´ë©´ -1234ë¥¼ ë°˜í™˜í•˜ë©´ ë©ë‹ˆë‹¤.
+ strì€ ë¶€í˜¸(+,-)ì™€ ìˆ«ìžë¡œë§Œ êµ¬ì„±ë˜ì–´ ìžˆê³ , ìž˜ëª»ëœ ê°’ì´ ìž…ë ¥ë˜ëŠ” ê²½ìš°ëŠ” ì—†ìŠµë‹ˆë‹¤.
  * @author PC-006
  *
  */
 public class question_3_ing {
 
 	public static void main(String[] args) {
-		
+
 		String case1 = "1234";
 		System.out.println(Integer.parseInt(case1));
-		
+
 	}
 }
 

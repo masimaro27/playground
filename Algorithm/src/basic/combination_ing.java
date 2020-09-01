@@ -7,26 +7,26 @@ import java.util.stream.Collectors;
 
 public class combination_ing {
 
-	
+
 	public static void main(String[] args) {
 		int n = 4;
-        int[] arr = {1, 2, 3, 4};
-        boolean[] visited = new boolean[n];
+		int[] arr = {1, 2, 3, 4};
+		boolean[] visited = new boolean[n];
 
-        for (int i = 1; i <= n; i++) {
-            System.out.println("\n" + n + " °³ Áß¿¡¼­ " + i + " °³ »Ì±â");
+		for (int i = 1; i <= n; i++) {
+			System.out.println("\n" + n + " ê°œ ì¤‘ì—ì„œ " + i + " ê°œ ë½‘ê¸°");
 //            back_tracking(arr, visited, 0, n, i);
-            combByRecursive(arr, n, i);
-            count = 0;
-        }
-		
+			combByRecursive(arr, n, i);
+			count = 0;
+		}
+
 	}
-	
-	
+
+
 	public static void combByRecursive(int[] arr, int n, int r) {
 		combByRecursive(0, new Stack<Integer>(), arr, n, r);
 	}
-	
+
 	public static Stack<Integer> combByRecursive(int start, Stack<Integer> visited, int[] arr, int n, int r) {
 		if (visited.size() == r) {
 			System.out.println(visited);
@@ -38,11 +38,11 @@ public class combination_ing {
 			visited = combByRecursive(start + 1, visited, arr, n, r);
 			visited.pop();
 		}
-		
+
 		return visited;
 	}
-	
-	
+
+
 	/**
 	 * solve by back tracking
 	 * @param arr
@@ -59,8 +59,8 @@ public class combination_ing {
 			print(arr, visited, n);
 			return;
 		}
-		
-		
+
+
 		for (int i = start; i<n; i++) {
 			String log= String.format("i = %d, n = %d, before visited = %s, visited = %s, ", i, n, visited[i-1 < 0 ? 0 : i-1], visited[i]);
 			System.out.println(log);
@@ -69,16 +69,16 @@ public class combination_ing {
 			visited[i] = false;
 		}
 	}
-	
+
 	static void print(int[] arr, boolean[] visited, int n) {
-        for (int i = 0; i < n; i++) {
-            if (visited[i]) {
-                System.out.print(arr[i] + " ");
-            }
-        }
-        System.out.println();
-    }
-	
-	
-	
+		for (int i = 0; i < n; i++) {
+			if (visited[i]) {
+				System.out.print(arr[i] + " ");
+			}
+		}
+		System.out.println();
+	}
+
+
+
 }

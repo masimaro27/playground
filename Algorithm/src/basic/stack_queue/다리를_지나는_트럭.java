@@ -20,33 +20,33 @@ class Mark {
 	public void setTime(int time) {
 		this.time = time;
 	}
-	
+
 	public Mark(int weight, int time) {
 		this.weight = weight;
 		this.time = time;
 	}
-	
-	
+
+
 }
 
-public class ´Ù¸®¸¦_Áö³ª´Â_Æ®·° {
-	
+public class ë‹¤ë¦¬ë¥¼_ì§€ë‚˜ëŠ”_íŠ¸ëŸ­ {
+
 	public static void main(String[] args) {
 
 		int bridge_length = 100;
 		int weight = 100;
 		int[] truck_weight = {10,10,10,10,10,10,10,10,10,10};
-	
+
 		Queue<Mark> dq = new LinkedList<>();
 		Queue<Integer> twq = new LinkedList<>();
-		
+
 		int available_weight = weight;
 		int time = 0, temp = 0;
-		
+
 		for (int tw: truck_weight) {
 			twq.offer(tw);
 		}
-		
+
 		while(true) {
 			if (dq.isEmpty() && twq.isEmpty()) {
 				break;
@@ -58,11 +58,11 @@ public class ´Ù¸®¸¦_Áö³ª´Â_Æ®·° {
 			if (twq.peek() != null && available_weight >= twq.peek()) {
 				temp = twq.poll();
 				dq.offer(new Mark(temp, time));
-				available_weight -= temp; 
+				available_weight -= temp;
 			}
-			
+
 		}
-		
+
 		System.out.println(time);
 	}
 }

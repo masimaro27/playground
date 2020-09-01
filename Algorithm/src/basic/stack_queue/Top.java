@@ -2,11 +2,11 @@ package basic.stack_queue;
 
 import java.util.stream.IntStream;
 
-public class ž {
+public class Top {
 
 	public static void main(String[] args) {
 		int[] height = {3, 9, 9, 3, 5, 7, 2};
-		ž top = new ž();
+		Top top = new Top();
 		int[] answer = top.solution(height);
 		IntStream.of(answer).forEach(i -> System.out.print(i+ ","));
 		
