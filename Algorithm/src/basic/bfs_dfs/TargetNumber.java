@@ -28,65 +28,24 @@ import java.util.List;
  */
 public class TargetNumber {
 
-    private HashMap<Integer, Boolean> visitedMap;
-    private Graph graph;
-    private int count = 0;
-
-    static class Graph {
-        private int V;
-        private LinkedList<Integer>[] adjList;
-
-        Graph(int v, int e) {
-            this.V = v;
-            adjList = new LinkedList[];
-            for (int i = 0 ; i < e; i++) {
-                adjList[i] = new LinkedList<>();
+    public int recursive(int sum, int[] numbers, int idx, int target) {
+        if (numbers.length == idx) {
+            if (sum == target) {
+                return 1;
             }
+            return 0;
         }
-
-        public void addEdge(Element elem, int e) {
-            if (!hasEdge(elem,e)) {
-                adjList[elem.getIndex()].offer(e);
-            }
-        }
-
-        public boolean hasEdge(Element elem, int e) {
-            return adjList[elem.getIndex()].contains(e);
-        }
-
-        public int getV() {
-            return V;
-        }
-
-        public LinkedList<Integer>[] getAdjList() {
-            return adjList;
-        }
+        return recursive( sum + numbers[idx], numbers, idx+1 , target) + recursive(sum - numbers[idx], numbers, idx+1, target);
     }
 
-    public void dfs(int v, int sum, int target) {
-
+    public int solution(int[] numbers, int target) {
+       return recursive(0, numbers, 0, target);
     }
 
-    static class Element {
-        private int index;
-        private int value;
-
-        public Element(int i, int v) {
-            this.index = i;
-            this.value = v;
-        }
-
-        public int getIndex() {
-            return index;
-        }
-
-        public int getValue() {
-            return value;
-        }
-    }
 
     public static void main(String[] args) {
-        int arr[] = {1,1,1,1,1};
-
+        int numbers[] = {1,1,1,1,1};
+        TargetNumber tn = new TargetNumber();
+        System.out.println(tn.solution(numbers, 3));
     }
 }
