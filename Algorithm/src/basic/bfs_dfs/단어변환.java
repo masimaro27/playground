@@ -24,18 +24,70 @@ package basic.bfs_dfs;
         예제 #1
         문제에 나온 예와 같습니다.
 
-        예제 #2
+        예제 #2R
         target인 cog는 words 안에 없기 때문에 변환할 수 없습니다.
 
    */
 
+import java.util.Arrays;
+
 public class 단어변환 {
     public static void main(String[] args) {
 
+        String begin = "hit";
+        String target = "cog";
+
+        String [] words = {"hot", "dot", "dog", "lot", "log", "cog"};
+
+        단어변환 d = new 단어변환();
+        System.out.println("answer : " + d.solution(begin, target, words));
 
     }
     public int solution(String begin, String target, String[] words) {
-        int answer = 0;
-        return answer;
+        return dfs(begin, target, words, new Boolean[words.length]);
     }
+
+    public boolean compare (int index, String c1, String c2) {
+        String t1 = "", t2 = "";
+
+        if (index == 0) {
+            t1 = c1.substring(index);
+            t2 = c2.substring(index);
+        }
+        if (index == c1.length() - 1) {
+            t1 = c1.substring(0, index);
+            t2 = c2.substring(0, index);
+        }
+        if (index != 0 && index == c1.length() - 1) {
+            t1 = c1.substring(0, index) + c1.substring(index + 1);
+            t2 = c2.substring(0, index) + c2.substring(index + 1);
+        }
+        return t1.equals(t2);
+    }
+
+    public int diff(String begin, String target) {
+
+    }
+
+    public int dfs (String bg, String tg, String[] words, Boolean[] v) {
+        int i , j;
+        if (bg.equals(tg)) {
+
+            return (int) Arrays.asList(v).stream().filter(b -> b).count();
+        }
+        System.out.println(String.format("bg [%s] tg [%s]", bg, tg));
+        for (i = 0; i < bg.length(); i++) {
+            for (j = 0 ; j < words.length; j++) {
+                if (v[j] != null && v[j]) { continue; }
+//                System.out.println(String.format("compare [%s] begin: [%s] target: [%s]", i, bg, tg));
+
+                if (compare(i, bg, tg)) {
+                    v[j] = true;
+                    return dfs (words[j], tg, words, v);
+                }
+            }
+        }
+        return 0;
+    }
+
 }
