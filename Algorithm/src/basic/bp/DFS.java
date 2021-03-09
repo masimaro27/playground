@@ -1,7 +1,5 @@
 package basic.bp;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -36,12 +34,12 @@ public class DFS {
         c[v] = true;
         System.out.print(v + " ");
 
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             int vv = stack.peek();
 
             flag = false;
 
-            for (int i = 0 ; i <= n; i ++) {
+            for (int i = 0; i <= n; i++) {
                 if (a[vv][i] == 1 && !c[i]) {
                     stack.push(i);
                     System.out.print(i + " ");
@@ -72,13 +70,13 @@ public class DFS {
 
         System.out.print(v + " ");
 
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             visitNode = stack.peek();
             elem = graph.getAdjList().get(visitNode);
 
             flag = false;
 
-            for (i = 0 ; i < elem.size(); i++) {
+            for (i = 0; i < elem.size(); i++) {
                 if (!c[elem.get(i)]) {
                     stack.push(elem.get(i));
                     c[elem.get(i)] = true;
@@ -102,27 +100,35 @@ public class DFS {
             this.v = n;
             adjList = new ArrayList();
 
-            for (int i = 0 ; i < n; i++) {
+            for (int i = 0; i < n; i++) {
                 adjList.add(new LinkedList<>());
             }
         }
 
-        public void addNode() {}
+        public void addNode() {
+        }
+
         public boolean contains(int v) {
             return adjList.contains(v);
         }
+
         public void removeNode(int v) {
         }
+
         public void addEdge(int v, int e) {
             adjList.get(v).offer(e);
         }
+
         public boolean hasEdge(int v, int e) {
             return adjList.get(v).contains(e);
         }
+
         public Integer removeEdge(int v, int e) {
             return adjList.get(v).remove(e);
         }
-        public void forEachNode() {}
+
+        public void forEachNode() {
+        }
 
         public int getV() {
             return v;

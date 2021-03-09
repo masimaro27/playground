@@ -66,7 +66,7 @@ public class 단어변환 {
     }
 
     public int diff(String begin, String target) {
-
+        return 0;
     }
 
     public int dfs (String bg, String tg, String[] words, Boolean[] v) {
