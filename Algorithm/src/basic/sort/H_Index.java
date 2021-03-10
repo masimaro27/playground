@@ -22,7 +22,7 @@ import java.util.Comparator;
 public class H_Index {
 
     public static void main(String[] args) {
-        int[] citations = {0,1,1};
+        int[] citations = {0,1,4,5,6};
         H_Index h_index = new H_Index();
         System.out.println(h_index.solution(citations));
     }
@@ -30,25 +30,30 @@ public class H_Index {
     public int solution(int[] citations) {
         Arrays.sort(citations);
         int n = citations.length;
-        int h = citations.length;
-        for (int i = citations.length - 1; i >= 0 ; --i) {
-            int p = citations[i];
-            if (p > n) {
-                --h;
-                continue;
-            }
-            int c = citations.length - i;
-            for (int j = i; j >= 0 ; --j) {
-                if (c >= h) {
-                    return h;
-                }
-                if (citations[j] != p) {
-                    --h;
+        int h = citations[citations.length - 1];
+
+        if (h == 0) {
+            return h;
+        }
+        while (h!=0) {
+            int c = 0;
+            for (int i = n - 1; i >= 0 ; --i) {
+                if (citations[i] < h) {
                     break;
                 }
                 ++c;
+
+                if (c == h) {
+                    return h;
+                }
             }
+            --h;
         }
+
+
+
+
+
 
         return 0;
     }
