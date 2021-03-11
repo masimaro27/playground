@@ -49,12 +49,6 @@ public class H_Index {
             }
             --h;
         }
-
-
-
-
-
-
         return 0;
     }
 
