@@ -105,6 +105,8 @@ package basic.bfs_dfs;
 import java.util.Arrays;
 
 public class 단어변환 {
+
+    private static int result = 0;
     public static void main(String[] args) {
 
         String begin = "hit";
@@ -113,15 +115,54 @@ public class 단어변환 {
         String [] words = {"hot", "dot", "dog", "lot", "log", "cog"};
 
         단어변환 d = new 단어변환();
-        System.out.println("answer : " + d.solution(begin, target, words));
+        d.solution(begin, target, words);
+        System.out.println("answer : " +  result);
+//        System.out.println("answer : " + d.solution(begin, target, words));
 
     }
-    public int solution(String begin, String target, String[] words) {
-        return dfs(begin, target, words, new Boolean[words.length]);
+    public void solution(String begin, String target, String[] words) {
+        if (!Arrays.stream(words).findAny().isPresent()) {
+            return;
+        }
+
+        dfs(begin, target, words, 0, new boolean[words.length]);
     }
 
-    public int dfs (String begin, String[] words, int depth, int ) {
+    public void dfs (String begin, String target, String[] words, int depth, boolean[] _visited ) {
+        if (begin.equals(target)) {
+            if (result == 0 || depth < result) {
+                result = depth;
+            }
+            return;
+        }
+        for (int i = 0; i < words.length; i++) {
+            System.out.println("begin: "+ begin +", words[" +  i + "] : " + words[i] +", depth :" + depth + ", visited :" +_visited[i]);
+            if (_visited[i]) {
+                continue;
+            }
 
+            char[] wordSplit = words[i].toCharArray();
+            char[] beginSplit = begin.toCharArray();
+            int diffCount = 0;
+            for (int j = 0; j < wordSplit.length; j++) {
+                if (diffCount > 1) {
+                    break;
+                }
+                if (wordSplit[j] == beginSplit[j]) {
+                    continue;
+                }
+                diffCount += 1;
+            }
+            if (diffCount > 1 || diffCount == 0) {
+                continue;
+            }
+            if (diffCount == 1) {
+                begin = words[i];
+                depth++;
+                _visited[i] = true;
+                dfs(begin, target, words, depth, _visited);
+            }
+        }  
     }
 
 }
